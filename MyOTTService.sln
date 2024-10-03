@@ -5,7 +5,7 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyOTTService", "MyOTTService\MyOTTService.csproj", "{45846BFB-9971-4178-B136-59EE2AE6BEB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOTTService.Tests", "MyOTTService.Tests\MyOTTService.Tests.csproj", "{FD56F47B-B449-4679-BEB3-AD735FE089E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyOTTService.Tests", "MyOTTService.Tests\MyOTTService.Tests.csproj", "{FD56F47B-B449-4679-BEB3-AD735FE089E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
