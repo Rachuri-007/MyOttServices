@@ -19,6 +19,7 @@ namespace MyOTTService.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
+            var ss = "rachuri";
             return "value";
         }
 
