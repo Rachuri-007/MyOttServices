@@ -39,7 +39,7 @@ jobs:
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
       - name: Build and analyze
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          GITHUB_TOKEN: "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"  # Needed to get PR information, if any
           SONAR_TOKEN: "26d175d9a1765fd2fab97e669d84349f9a071e16"
         shell: powershell
         run: |
