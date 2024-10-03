@@ -46,3 +46,21 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"rachuri-ott_rachuri-ott" /o:"rachuri-ott" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+      - name: CoverageInstall
+        run: dotnet tool install --global dotnet-coverage
+      - name: Coverage
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        shell: powershell
+        run: |
+          dotnet sonarscanner begin /k:"rachuri-ott"
+              /d:sonar.token="26d175d9a1765fd2fab97e669d84349f9a071e16"
+              /d:sonar.cs.opencover.reportsPaths=coverage.xml
+          dotnet build --no-incremental
+          coverlet .\CovExample.Tests\bin\Debug\net6.0\CovExample.Tests.dll
+              --target "dotnet" 
+              --targetargs "test --no-build"
+              -f=opencover 
+              -o="coverage.xml"
+          dotnet sonarscanner end /d:sonar.token="26d175d9a1765fd2fab97e669d84349f9a071e16"
