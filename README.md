@@ -1,2 +1,1 @@
-# MyOttServices
-MyOttServices
+# MyOTTService
