@@ -25,9 +25,7 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build --configuration Release
-      - name: Test
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet build --configuration Release     
       - name: Cache SonarCloud packages
         uses: actions/cache@v4
         with:
@@ -56,3 +54,5 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"rachuri-ott_rachuri-ott" /o:"rachuri-ott" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+      - name: TestCoverage
+        run: dotnet tool install --global coverlet.console
